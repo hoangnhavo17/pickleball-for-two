@@ -1,0 +1,23 @@
+{
+  "name": "pickleball-for-two",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Browser pickleball (Tennis for Two style) + planned Pro CPU behavior cloning",
+  "type": "module",
+  "scripts": {
+    "start": "npx --yes serve . -p 63144",
+    "ml:simulate": "node ml/sim/run_offline_sim.js",
+    "ml:benchmark": "node ml/sim/run_benchmark_ladders.js",
+    "ml:regression": "node ml/sim/regression_parity.mjs",
+    "ml:tune-shots": "node ml/sim/tune_shots.js",
+    "ml:validate-shots": "node ml/sim/validate_shots.js",
+    "ml:tune-physics": "node ml/sim/tune_physics.js",
+    "ml:validate-physics": "node ml/sim/validate_physics.js",
+    "ml:build": "node ml/sim/run_offline_sim.js && node ml/sim/run_benchmark_ladders.js && node ml/sim/regression_parity.mjs && python3 ml/oracle/generate_shot_oracle.py && python3 ml/oracle/export_shot_oracle.py && python3 ml/src/preprocess.py && python3 ml/src/train_behavior_clone.py --no-resume && python3 ml/src/eval_rollout_benchmark.py && python3 ml/src/check_acceptance.py && python3 ml/src/export_model.py && python3 ml/src/smoke_check_model.py && python3 ml/src/write_training_report.py && python3 ml/src/check_training_stop.py",
+    "ml:sweep": "python3 ml/src/hparam_sweep.py",
+    "ml:calibrate-gates": "python3 ml/src/calibrate_gates.py",
+    "ml:check-stop": "python3 ml/src/check_training_stop.py",
+    "ml:oracle": "python3 ml/oracle/generate_shot_oracle.py && python3 ml/oracle/export_shot_oracle.py",
+    "ml:export-shipped": "python3 ml/src/export_model.py && python3 ml/oracle/export_shot_oracle.py"
+  }
+}

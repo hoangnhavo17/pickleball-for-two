@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pickleball For Two</title>
+  <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+    <main class="game">
+    <div>
+      <h1>Pickleball For Two</h1>
+      <p class="subtitle">Singles vs CPU. Arrows move your paddle; 1–4 serve angle; Space on the power bar to serve.</p>
+    </div>
+
+    <div class="hud">
+      <div class="score" id="score">You 0-0 · You 0 - 0 CPU (singles)</div>
+      <div class="status" id="status">Press Space to serve.</div>
+    </div>
+
+    <div class="controls">
+      <div class="mode-row" role="group" aria-label="CPU mode">
+        <span class="cpu-mode-label">CPU mode</span>
+        <button type="button" class="action secondary cpu-mode-btn" data-cpu-mode="normal" title="Hand-tuned only; no neural updates">Normal</button>
+        <button type="button" class="action secondary cpu-mode-btn" data-cpu-mode="pro" title="Basic in-browser neural policy trained by imitation">Pro (ML)</button>
+        <span class="cpu-pro-only model-row">
+          <label for="cpuModelSelect" class="cpu-mode-label">Model</label>
+          <select id="cpuModelSelect" class="cpu-model-select" aria-label="CPU model profile"></select>
+        </span>
+      </div>
+      <label id="serveControlsLabel">Serve angle</label>
+      <div id="powerOptions" class="power-options"></div>
+      <div id="servePowerBarBlock" class="serve-power-block" hidden>
+        <div class="serve-power-bar-label">Power bar — <kbd>Space</kbd> to serve with the current level</div>
+        <div class="serve-power-track" role="presentation">
+          <div id="servePowerFill" class="serve-power-fill"></div>
+        </div>
+        <div id="servePowerReadout" class="serve-power-readout" aria-live="polite">0</div>
+      </div>
+      <button id="newGameBtn" type="button" class="action secondary">New Game</button>
+    </div>
+
+    <canvas id="court" width="1620" height="620" aria-label="Pickleball For Two court"></canvas>
+
+    <div class="legend">
+      <span><kbd>&larr;</kbd> back  <kbd>&rarr;</kbd> forward</span>
+      <span><kbd>&uarr;</kbd> high paddle  <kbd>&darr;</kbd> low paddle</span>
+      <span><kbd>1</kbd>-<kbd>4</kbd> angle slot</span>
+      <span>Paddle height: smash / drive / lob &mdash; <kbd>Q</kbd> toggles soft (kitchen dink, box drop)</span>
+      <span><kbd>Space</kbd> — time the power bar, then serve (or ready for CPU serve)</span>
+    </div>
+
+    <details class="rules-dropbox">
+      <summary>Pickleball rules (singles)</summary>
+      <div class="rules-body">
+        <section>
+          <h3>Scoring</h3>
+          <ul>
+            <li><strong>Score call:</strong> server's score, then receiver's (HUD).</li>
+            <li><strong>Points:</strong> only the server scores; receiver wins the rally → <strong>side-out</strong>.</li>
+            <li><strong>Game:</strong> first to <strong>11</strong>, win by <strong>2</strong>.</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Court zones</h3>
+          <ul>
+            <li><strong>Kitchen (NVZ):</strong> red strip at the net (7 paddle-units).</li>
+            <li><strong>Box:</strong> kitchen line to baseline (15 paddle-units).</li>
+            <li><strong>Runback:</strong> behind the baseline before you serve.</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Serve &amp; two-bounce</h3>
+          <ul>
+            <li>Angle <kbd>1</kbd>–<kbd>4</kbd>, then <kbd>Space</kbd> on the power bar.</li>
+            <li><strong>Two-bounce:</strong> serve bounces on receiver's side; return bounces on server's side. No volleys until both (HUD).</li>
+            <li><strong>Serve fault:</strong> first bounce in opponent's <strong>kitchen</strong>.</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Kitchen (NVZ)</h3>
+          <ul>
+            <li>You may stand in the kitchen.</li>
+            <li><strong>Fault:</strong> volley in the kitchen before the ball bounces on your side.</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Rally</h3>
+          <ul>
+            <li>Volleys OK after two-bounce rule (not in kitchen before bounce).</li>
+            <li><strong>Second bounce</strong> on your side → point lost.</li>
+            <li>Must clear the net and land in bounds.</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Shots</h3>
+          <ul>
+            <li><strong>Height:</strong> high smash, mid drive, low lob.</li>
+            <li><strong><kbd>Q</kbd> soft:</strong> kitchen → dink; box → drop.</li>
+          </ul>
+        </section>
+      </div>
+    </details>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

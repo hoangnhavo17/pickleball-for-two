@@ -1,0 +1,68 @@
+# Pickleball for Two
+
+Browser singles pickleball vs a CPU opponent, inspired by **Tennis for Two**.  
+**Normal mode** is the default: hand-tuned CPU, no model files required.
+
+## Play locally
+
+You need a local HTTP server (ES modules will not load from `file://`).
+
+```bash
+npm start
+```
+
+Open the URL shown in the terminal (default port `63144`), for example:
+
+**http://localhost:63144/src/index.html**
+
+Or open the root page (redirects to the game):
+
+**http://localhost:63144/**
+
+## Controls
+
+| Input | Action |
+|-------|--------|
+| **Arrow keys** | Move paddle (up/down is faster for shot-height changes) |
+| **1–4** | Serve angle preset |
+| **Space** | Time the power bar, then serve (or ready for CPU serve) |
+| **Q** | Toggle soft shots: kitchen → dink, box → drop |
+| Paddle height (no Q) | High → smash, mid → drive, low → lob |
+
+Pick **Normal** under CPU mode. **Pro (ML)** is experimental and needs files under `public/models/` (not required for Normal play).
+
+## Rules (in-game)
+
+Open **Pickleball rules (singles)** under the court for full detail. Short version:
+
+- **Scoring:** server’s score first; only the server scores; side-out if the receiver wins; game to **11**, win by **2**
+- **Two-bounce:** serve must bounce on the receiver’s side; return must bounce on the server’s side before volleys
+- **Kitchen (NVZ):** no volley in the kitchen before the ball bounces on your side
+- **Serve fault:** first bounce in the opponent’s kitchen is out
+- **Second bounce** on your side after the last hit → point lost
+
+Court zones use a **30px paddle unit** for layout (kitchen, box, net). On-screen paddles are drawn larger for gameplay.
+
+## Project layout
+
+| Path | Purpose |
+|------|---------|
+| `src/sim/` | Physics, rules, rally logic (shared core) |
+| `src/game/` | Canvas, input, HUD |
+| `src/index.html` | Game page |
+| `index.html` | Redirect to the game |
+| `ml/` | Offline training pipeline (optional; not needed to play) |
+
+## Development
+
+Sim regression (rules / scoring smoke test):
+
+```bash
+npm run ml:regression
+```
+
+More on the ML side and Pro CPU: see `PROJECT_EXPLAINED.md` and scripts under `ml/`.
+
+## License
+
+MIT — see [LICENSE](LICENSE).

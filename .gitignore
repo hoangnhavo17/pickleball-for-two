@@ -1,0 +1,20 @@
+node_modules/
+dist/
+.env
+.env.*
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.DS_Store
+
+# Raw/processed datasets and checkpoints (regenerate with ml:simulate / ml:build)
+ml/data/raw/*.csv
+ml/data/processed/*.csv
+ml/artifacts/
+*.pt
+*.pth
+*.onnx
+*.h5
+*.ckpt
