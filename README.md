@@ -1,8 +1,12 @@
 # Pickleball for Two
 
-> Browser singles pickleball vs a CPU. Tennis for Two–style canvas game — **Normal mode**, no ML weights, play with `npm start`.
+> Browser singles pickleball vs a CPU. Tennis for Two–style canvas game — **Normal mode**, no ML weights.
 
 Singles vs a hand-tuned CPU opponent. Court uses real-ish rules (two-bounce serve, kitchen NVZ, rally scoring to 11). **Pro (ML)** is optional and not required for this release.
+
+## Play online
+
+**[Play in your browser on itch.io](https://oneyayvo.itch.io/pickleball-for-two)**
 
 ## Play locally
 
