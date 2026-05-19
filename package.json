@@ -2,7 +2,7 @@
   "name": "pickleball-for-two",
   "version": "0.1.0",
   "private": true,
-  "description": "Browser pickleball (Tennis for Two style) + planned Pro CPU behavior cloning",
+  "description": "Browser singles pickleball vs CPU (Normal mode). Tennis for Two-style canvas game — npm start to play.",
   "type": "module",
   "scripts": {
     "start": "npx --yes serve . -p 63144",
