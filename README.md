@@ -7,7 +7,7 @@ Singles vs a hand-tuned CPU opponent. Court uses real-ish rules (two-bounce serv
 ## Play online
 
 - **[itch.io](https://oneyayvo.itch.io/pickleball-for-two)** — game page (embed + fullscreen)
-- **[GitHub Pages](https://hoangnhavo17.github.io/pickleball-for-two/)** — live demo from this repo ([enable Pages](https://github.com/hoangnhavo17/pickleball-for-two/settings/pages): branch `main`, folder `/ (root)`)
+- **[GitHub Pages](https://hoangnhavo17.github.io/pickleball-for-two)** — live demo from this repo
 
 ## Controls
 
