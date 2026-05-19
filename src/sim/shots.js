@@ -21,9 +21,9 @@ import {
 } from "./rules.js";
 import { clamp } from "./rng.js";
 
-/** Paddle-height bands (0 = low, 1 = high). */
-export const PADDLE_HIGH_BAND = 2 / 3;
-export const PADDLE_MID_BAND = 1 / 3;
+/** Paddle-height bands (0 = low, 1 = high): bottom ¼ lob, middle ½ drive, top ¼ smash. */
+export const PADDLE_HIGH_BAND = 3 / 4;
+export const PADDLE_MID_BAND = 1 / 4;
 
 export const SOFT_SHOT_DROP = "Drop";
 export const SOFT_SHOT_DINK = "Dink";

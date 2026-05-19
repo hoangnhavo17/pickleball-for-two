@@ -926,7 +926,7 @@ function drawHud() {
       `Soft ${state.playerSoftShotQueued ? "ON" : "off"} (Q) \u2014 ${
         state.playerSoftShotQueued
           ? "kitchen dink / box drop (any paddle height)"
-          : "high smash \u00B7 mid drive \u00B7 low lob"
+          : "top \u00BC smash \u00B7 mid \u00BD drive \u00B7 bottom \u00BC lob"
       }`,
       14,
       HEIGHT - 18
@@ -1023,7 +1023,7 @@ window.addEventListener("keydown", (event) => {
     state.playerSoftShotQueued = !state.playerSoftShotQueued;
     state.message = state.playerSoftShotQueued
       ? "Soft on: dink at kitchen, drop in box (any paddle height)."
-      : "Soft off: high smash, mid drive, low lob.";
+      : "Soft off: top quarter smash, middle drive, bottom quarter lob.";
     updateHud();
     return;
   }
