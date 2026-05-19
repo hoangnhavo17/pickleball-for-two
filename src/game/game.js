@@ -26,7 +26,6 @@ import {
   PADDLE_REACH_BOTTOM,
   PADDLE_REACH_TOP,
   PADDLE_PLAY_W,
-  PLAYER_BASE_X,
   PLAYER_RALLY_MAX_X,
   PLAYER_RALLY_MIN_X,
   PLAYER_SERVE_MAX_X,
@@ -609,13 +608,8 @@ function updateCpu() {
   const idleStepY = idleStep * (CPU_VERTICAL_SPEED / CPU_SPEED);
 
   if (state.awaitingServe) {
-    if (state.server === "cpu") {
-      cpu.x += clamp(CPU_SERVE_DEFAULT_X - cpu.x, -idleStep, idleStep);
-      cpu.x = clamp(cpu.x, CPU_SERVE_MIN_X, CPU_SERVE_MAX_X);
-    } else {
-      cpu.x += clamp(CPU_BASE_X - cpu.x, -idleStep, idleStep);
-      cpu.x = clamp(cpu.x, CPU_RALLY_MIN_X, CPU_RALLY_MAX_X);
-    }
+    cpu.x += clamp(CPU_SERVE_DEFAULT_X - cpu.x, -idleStep, idleStep);
+    cpu.x = clamp(cpu.x, CPU_SERVE_MIN_X, CPU_SERVE_MAX_X);
     const dyIdle = (GROUND_Y - PADDLE_PLAY_H / 2) - cpu.y;
     cpu.y += clamp(dyIdle, -idleStepY, idleStepY);
     const minServeY = state.server === "cpu" ? SERVE_PADDLE_REACH_TOP : PADDLE_REACH_TOP;
@@ -725,13 +719,8 @@ function updatePlayerInput() {
     let minX;
     let maxX;
     if (state.awaitingServe) {
-      if (state.server === "player") {
-        minX = PLAYER_SERVE_MIN_X;
-        maxX = PLAYER_SERVE_MAX_X;
-      } else {
-        minX = PLAYER_RALLY_MIN_X;
-        maxX = PLAYER_RALLY_MAX_X;
-      }
+      minX = PLAYER_SERVE_MIN_X;
+      maxX = PLAYER_SERVE_MAX_X;
     } else {
       minX = PLAYER_RALLY_MIN_X;
       maxX = PLAYER_RALLY_MAX_X;

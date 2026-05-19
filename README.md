@@ -6,23 +6,8 @@ Singles vs a hand-tuned CPU opponent. Court uses real-ish rules (two-bounce serv
 
 ## Play online
 
-**[Play in your browser on itch.io](https://oneyayvo.itch.io/pickleball-for-two)**
-
-## Play locally
-
-You need a local HTTP server (ES modules will not load from `file://`).
-
-```bash
-npm start
-```
-
-Open the URL shown in the terminal (default port `63144`), for example:
-
-**http://localhost:63144/src/index.html**
-
-Or open the root page (redirects to the game):
-
-**http://localhost:63144/**
+- **[itch.io](https://oneyayvo.itch.io/pickleball-for-two)** — game page (embed + fullscreen)
+- **[GitHub Pages](https://hoangnhavo17.github.io/pickleball-for-two/)** — live demo from this repo ([enable Pages](https://github.com/hoangnhavo17/pickleball-for-two/settings/pages): branch `main`, folder `/ (root)`)
 
 ## Controls
 

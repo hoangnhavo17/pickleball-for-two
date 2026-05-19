@@ -7,13 +7,11 @@
  */
 
 import {
-  CPU_BASE_X,
   CPU_SERVE_DEFAULT_X,
   CPU_SERVE_DISPLAY_POWER_MAX,
   CPU_SERVE_DISPLAY_POWER_MIN,
   GROUND_Y,
   PADDLE_PLAY_H,
-  PLAYER_BASE_X,
   PLAYER_SERVE_DEFAULT_X,
   PADDLE_PLAY_W,
   POWER_MAX,
@@ -36,12 +34,12 @@ export function resetServePositions(state, player, cpu) {
   if (state.server === "player") {
     player.x = PLAYER_SERVE_DEFAULT_X;
     player.y = y0;
-    cpu.x = CPU_BASE_X;
+    cpu.x = CPU_SERVE_DEFAULT_X;
     cpu.y = y0;
   } else {
     cpu.x = CPU_SERVE_DEFAULT_X;
     cpu.y = y0;
-    player.x = PLAYER_BASE_X;
+    player.x = PLAYER_SERVE_DEFAULT_X;
     player.y = y0;
   }
 }
